@@ -28,7 +28,7 @@ fn handle_connection(stream: TcpStream) {
     buf_reader.read_line(&mut line).unwrap();
     let mut request_parts = line.trim().split(" ");
 
-    let (method, path, version) = (
+    let (method, _, _) = (
         request_parts.next().unwrap(),
         request_parts.next().unwrap(),
         request_parts.next().unwrap(),
