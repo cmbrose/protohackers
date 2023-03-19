@@ -26,7 +26,6 @@ fn main() {
 
 fn handle_connection(id: i32, mut stream: TcpStream) {
     let mut buf = [0; 1024];
-    let mut total: usize = 0;
     loop {
         let size = stream.read(&mut buf).unwrap();
         if size == 0 {
@@ -35,7 +34,5 @@ fn handle_connection(id: i32, mut stream: TcpStream) {
         }
 
         stream.write_all(&buf[..size]).unwrap();
-        
-        total += size;
     }
 }
